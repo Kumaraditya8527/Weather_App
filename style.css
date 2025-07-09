@@ -1,206 +1,151 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Assistant", sans-serif;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #83a4d4, #b6fbff);
-  text-align: center;
-  padding: 30px;
-  transition: background 1s ease-in-out;
+  font-family: "Assistant", sans-serif;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: top center;
 }
 
-.container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-input {
-  padding: 10px;
-  width: 80%;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#weatherInfo, #forecast {
-  margin-top: 20px;
-}
-
-#forecast {
+.app-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+header {
+  display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  padding: 50px 15px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.forecast-card {
-  background-color: #f2f2f2;
-  padding: 15px;
-  border-radius: 10px;
-  width: 120px;
-}
-
-#recentSearches button {
-  margin: 5px;
-  padding: 6px 10px;
+header input {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 18px;
   border: none;
-  border-radius: 5px;
-  background-color: #e0e0e0;
-  cursor: pointer;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  border-bottom: 3px solid #555;
+
+  color: #222;
+  font-size: 18px;
+  font-weight: 400;
+  transition: all 0.3s ease;
 }
 
-.cloud {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: floatClouds 60s linear infinite;
-  z-index: 0;
+header input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 3px solid #222;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.cloud:before,
-.cloud:after {
-  content: '';
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
+header input:focus {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-.cloud:before {
-  width: 100px;
-  height: 100px;
-  top: -50px;
-  left: 50px;
+main {
+  flex: 1 1 100%;
+  padding: 25px 25px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.cloud:after {
-  width: 120px;
-  height: 120px;
-  top: -40px;
-  left: -40px;
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
 }
 
-@keyframes floatClouds {
-  0% {
-    transform: translateX(-300px);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
+.weather-box {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 42px;
+  text-align: center;
 }
 
-
-.container {
-  position: relative;
-  z-index: 1;
-}
-
-.cloud {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  opacity: 0;
-  animation: floatClouds 60s linear infinite, fadeIn 2s ease forwards;
-  z-index: 0;
-  transition: opacity 2s ease;
-}
-
-.cloud:before,
-.cloud:after {
-  content: '';
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-.cloud:before {
-  width: 100px;
-  height: 100px;
-  top: -50px;
-  left: 50px;
-}
-
-.cloud:after {
-  width: 120px;
-  height: 120px;
-  top: -40px;
-  left: -40px;
-}
-
-@keyframes floatClouds {
-  0% {
-    transform: translateX(-300px);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 0.6;
-  }
-}
-
-.raindrop {
-  position: absolute;
-  width: 2px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.6);
-  animation: rainFall 1s linear infinite;
-  z-index: 0;
-}
-
-@keyframes rainFall {
-  0% {
-    top: -10px;
-    opacity: 0.8;
-  }
-  100% {
-    top: 100vh;
-    opacity: 0;
-  }
-}   
-.snowflake {
-  position: absolute;
+.location .city {
   color: #fff;
-  font-size: 20px;
-  opacity: 0.8;
-  animation: snowFall 10s linear infinite;
-  z-index: 0;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-@keyframes snowFall {
-  0% {
-    transform: translateY(-10px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
+.location .date {
+  color: #eee;
+  font-size: 18px;
 }
 
-.rainbow {
-  position: absolute;
-  top: 10%;
-  left: 20%;
-  width: 300px;
-  height: 150px;
-  border-radius: 50%;
-  background: conic-gradient(
-    red, orange, yellow, green, blue, indigo, violet, red
-  );
-  opacity: 0.3;
-  z-index: 0;
+.current .temp {
+  color: #fff;
+  font-size: 96px;
+  font-weight: 800;
+  margin: 20px 0;
+  text-shadow: 3px 6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.current .temp i {
+  font-size: 48px;
+  margin-right: 10px;
+}
+
+.current .temp span {
+  font-weight: 500;
+}
+
+.current .weather {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 10px;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.current .weather i {
+  margin-left: 8px;
+}
+
+.current .hi-low {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  text-shadow: 0 3px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
