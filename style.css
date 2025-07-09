@@ -1,0 +1,206 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  text-align: center;
+  padding: 30px;
+  transition: background 1s ease-in-out;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#weatherInfo, #forecast {
+  margin-top: 20px;
+}
+
+#forecast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.forecast-card {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 10px;
+  width: 120px;
+}
+
+#recentSearches button {
+  margin: 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatClouds 60s linear infinite;
+  z-index: 0;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud:before {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  left: -40px;
+}
+
+@keyframes floatClouds {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatClouds 60s linear infinite, fadeIn 2s ease forwards;
+  z-index: 0;
+  transition: opacity 2s ease;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.cloud:before {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  left: -40px;
+}
+
+@keyframes floatClouds {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0.6;
+  }
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  animation: rainFall 1s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rainFall {
+  0% {
+    top: -10px;
+    opacity: 0.8;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}   
+.snowflake {
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0.8;
+  animation: snowFall 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.rainbow {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 300px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    red, orange, yellow, green, blue, indigo, violet, red
+  );
+  opacity: 0.3;
+  z-index: 0;
+}
